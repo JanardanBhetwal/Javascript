@@ -48,8 +48,17 @@ function checkWin() {
 }
 
 function gameover() {
-  result.innerText = "Winner";
+  let winner;
+  if (turnO) {
+    winner = "X";
+  } else {
+    winner = "O";
+  }
+  result.innerText = `Congratulations, the winner is ${winner}`;
   reset.style.visibility = "visible";
+  boxes.forEach((box) => {
+    box.disabled = true;
+  });
 }
 
 reset.addEventListener("click", () => {
