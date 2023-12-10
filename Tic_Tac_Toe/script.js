@@ -14,9 +14,11 @@ let reset = document.getElementById("reset-game");
 let result = document.querySelector("#result");
 
 let turnO = true;
+let turns = 0;
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
+    turns++;
     game(box);
   });
 });
@@ -25,12 +27,15 @@ function game(box) {
   if (turnO) {
     turnO = false;
     box.innerText = "O";
+    box.style.color = "#260d54";
   } else {
     turnO = true;
     box.innerText = "X";
+    box.style.color = "#00736b";
   }
   box.disabled = true;
   checkWin();
+  checkDraw();
 }
 
 function checkWin() {
@@ -40,10 +45,16 @@ function checkWin() {
     let pos2 = boxes[pattern[2]].innerText;
     if (pos0 != "" && pos1 != "" && pos2 != "") {
       if (pos0 == pos1 && pos1 == pos2) {
-        console.log("Winner");
         gameover();
       }
     }
+  }
+}
+
+function checkDraw() {
+  if (turns >= 9) {
+    result.innerText = "Draw! No one is the winner";
+    reset.style.visibility = "visible";
   }
 }
 
@@ -69,4 +80,5 @@ reset.addEventListener("click", () => {
   });
   result.innerText = "";
   reset.style.visibility = "hidden";
+  turns = 0;
 });
