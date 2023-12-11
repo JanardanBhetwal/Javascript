@@ -34,8 +34,10 @@ function game(box) {
     box.style.color = "#00736b";
   }
   box.disabled = true;
-  checkWin();
-  checkDraw();
+  // checkWin();
+  if (!checkWin()) {
+    checkDraw();
+  }
 }
 
 function checkWin() {
@@ -46,6 +48,7 @@ function checkWin() {
     if (pos0 != "" && pos1 != "" && pos2 != "") {
       if (pos0 == pos1 && pos1 == pos2) {
         gameover();
+        return true;
       }
     }
   }
