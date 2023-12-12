@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: #C4BBB8;
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    margin: 30px auto 0px auto;
+}
+
+button {
+    width: 40px;
+    height: 60px;
+    border: 2px solid #39375B;
+    background-color: #DC6ACF;
+}
+
+#right {
+    background-image: url("playx.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#left {
+    background-image: url("play.png");
+    background-size: cover;
+    background-position: center;
+}
+
+img {
+    width: 600px;
+    height: 400px;
+    border: 5px solid #39375B;
+    object-fit: cover;
+}
